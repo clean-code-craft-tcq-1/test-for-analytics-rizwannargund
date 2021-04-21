@@ -2,8 +2,6 @@
 
 Design tests for Analytics functionality on a Battery Monitoring System.
 
-Fill the parts marked '_enter' in the **Tasks** section below.
-
 ## Analysis-functionality to be tested
 
 This section lists the Analysis for which _tests_ must be written.
@@ -61,8 +59,6 @@ Add to these tests:
 5. Write to PDF and save works
 6. Write to confirm mock job runs on every week
 7. Write to confirm mock notification works
-
-(add more)
 
 ### Recognize Fakes and Reality
 
