@@ -27,10 +27,13 @@ Notification must be sent when a new report is available.
 List the dependencies of the Analysis-functionality.
 
 1. Access to the Server containing the telemetrics in a csv file
-1. _enter dependency
-1. _enter dependency
+2. Access to the csv file
+3. Has data in csv
+4. PDF generator component
+5. Place to store the PDF report
+6. Email account if notification is via email service
 
-(add more if needed)
+
 
 ### Mark the System Boundary
 
@@ -40,10 +43,10 @@ What is included in the software unit-test? What is not? Fill this table.
 |---------------------------|---------------|---
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
-Off-the-shelf PDF converter | _enter Yes/No | _enter reasoning
-Counting the breaches       | _enter Yes/No | _enter reasoning
-Detecting trends            | _enter Yes/No | _enter reasoning
-Notification utility        | _enter Yes/No | _enter reasoning
+Off-the-shelf PDF converter | Yes			| Need for pdf report generator
+Counting the breaches       | Yes			| This is part of the software being developed
+Detecting trends            | Yes			| This is part of the software being developed
+Notification utility        | Yes			| This is part of the software being developed
 
 ### List the Test Cases
 
@@ -52,9 +55,12 @@ Write tests in the form of `<expected output or action>` from `<input>` / when `
 Add to these tests:
 
 1. Write minimum and maximum to the PDF from a csv containing positive and negative readings
-1. Write "Invalid input" to the PDF when the csv doesn't contain expected data
-1. _enter a test
-1. _enter a test
+2. Write "Invalid input" to the PDF when the csv doesn't contain expected data
+3. Write number of times the breach crossed in a month from csv by counting to the PDF
+4. Write date & time when the reading was continuously increasing for 30 minutes from csv to PDF
+5. Write to PDF and save works
+6. Write to confirm mock job runs on every week
+7. Write to confirm mock notification works
 
 (add more)
 
@@ -68,8 +74,8 @@ Enter one part that's real and another part that's faked/mocked.
 |--------------------------|--------------|-----------------------------|---
 Read input from server     | csv file     | internal data-structure     | Fake the server store
 Validate input             | csv data     | valid / invalid             | None - it's a pure function
-Notify report availability | _enter input | _enter output               | _enter fake or mock
-Report inaccessible server | _enter input | _enter output               | _enter fake or mock
-Find minimum and maximum   | _enter input | _enter output               | _enter fake or mock
-Detect trend               | _enter input | _enter output               | _enter fake or mock
-Write to PDF               | _enter input | _enter output               | _enter fake or mock
+Notify report availability | emailid 	  | boolean flag                | Mock email sending
+Report inaccessible server | IP addr 	  | connection state		    | None - it's state verification
+Find minimum and maximum   | csv data 	  | get minimum and maximum     | Fake csv data
+Detect trend               | csv data 	  | get trend datetime          | Fake csv data
+Write to PDF               | csv data/string | PDF file with content   	| Mock PDF provider
